@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace App02._2
 {
-    [Serializable]
     public class Login
     {
-        [XmlIgnore]
         const string NAME_WINDOW = "main";
 
-        [XmlAttribute(AttributeName = "name")]
+        public Login()
+        {
+            Windows = new List<Window>();
+        }
+
         public string Name { get; set; }
-
-        [XmlElement(ElementName = "window")]
-        public List<Window> Windows { get; set; }
-
-        [XmlIgnore]
         public bool IsCorrectLogin
         {
             get
@@ -42,15 +36,14 @@ namespace App02._2
 
             }
         }
-
-        public Login() { }
+        public List<Window> Windows { get; set; }
 
         public override string ToString()
         {
             StringBuilder loginStringBuilder = new StringBuilder();
 
             loginStringBuilder.Append($"Login: {Name}\n");
-            
+
             foreach (var itemWindow in Windows)
             {
                 loginStringBuilder.Append($"\t{itemWindow}\n");

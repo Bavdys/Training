@@ -5,7 +5,11 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace App02._2
 {
@@ -13,12 +17,16 @@ namespace App02._2
     {
         static void Main(string[] args)
         {
-            XmlContext xmlConfiguration = new XmlContext();
-            Configuration config = (Configuration)xmlConfiguration.Deserialization(@"Config\XMLConfiguration.xml", typeof(Configuration));
-            xmlConfiguration.Serialization(@"Config\XMLConfigurationNew.xml", config);
-          
+            XMLFileManager xmlConfiguration = new XMLFileManager();
 
+            XDocument xmlDocument = xmlConfiguration.ReadXMLFile(@"Config\XMLConfiguration.xml");
 
+            Configuration configuration = new Configuration();
+
+            configuration=ConfigurationContext.Initialization(xmlDocument);
+            
+            ConfigurationContext.MigrationConfigurationToJson(configuration);
         }
-    }
+         
+    };
 }

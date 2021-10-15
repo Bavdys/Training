@@ -4,7 +4,6 @@
 		<window title="main">
 			<top>10</top>
 			<left>20</left>
-			<width>400</width>
 			<height>200</height>
 		</window>
 		<window title="help">
