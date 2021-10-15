@@ -47,7 +47,7 @@ namespace App01._2
                     throw new IndexOutOfRangeException("Index out of bounds of array");
                 }
 
-                return (i == j) ? _matrix[(i+j)/2] : default;
+                return (i == j) ? _matrix[i] : default;
             }
             set
             {
@@ -61,12 +61,12 @@ namespace App01._2
                     throw new Exception("Can only change elements on the diagonal");
                 }
 
-                if (!_matrix[(i + j) / 2].Equals(value))
+                if (!_matrix[i].Equals(value))
                 {
-                    OnChangeValue(new ValueEventArgs<T>(i, j, _matrix[(i + j) / 2]));
+                    OnChangeValue(new ValueEventArgs<T>(i, j, _matrix[i]));
                 }
 
-               _matrix[(i + j) / 2] = value;
+               _matrix[i] = value;
             }
         }
        

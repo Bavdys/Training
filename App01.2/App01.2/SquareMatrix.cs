@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace App01._2
 {
