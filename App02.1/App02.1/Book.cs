@@ -23,7 +23,7 @@ namespace App02._1
             return Regex.IsMatch(iSBN, ISBN_FORMAT_PATTERN) || Regex.IsMatch(iSBN, ISBN_FORMAT_PATTERN_WITH_DASH);
         }
 
-        public Book(string name, string iSBN, DateTime date, List<Avtor> avtors)
+        public Book(string name, string iSBN, DateTime date, List<Writer> avtors)
         {
             Title = name;
             ISBN = iSBN;
@@ -40,7 +40,9 @@ namespace App02._1
             private set
             {
                 if (!IsCorrectISBN(value))
+                {
                     throw new ArgumentException($"The {value} input is incorrect");
+                }
                 
                 _iSBN = value.Replace("-","");
             }
@@ -54,13 +56,15 @@ namespace App02._1
             private set
             {
                 if (value.Length > LINE_LENGTH_STRING)
+                {
                     throw new ArgumentOutOfRangeException($"The maximum line length is {LINE_LENGTH_STRING} characters");
+                }
 
                 _title = value;
             }
         }
         public DateTime Date { get; }
-        public List<Avtor> Avtors { get; }
+        public List<Writer> Avtors { get; }
 
         public override bool Equals(object obj)
         {

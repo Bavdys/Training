@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Avtor.cs" />
+    <Compile Include="Writer.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Catalog.cs" />
     <Compile Include="Program.cs" />

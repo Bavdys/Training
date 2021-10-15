@@ -5,14 +5,14 @@ namespace App02._1
     /// <summary>
     /// Represent a class that contains the author's data.  
     /// </summary>
-    public class Avtor
+    public class Writer
     {
         const int LINE_LENGTH_STRING = 200;
         
         string _firstName;
         string _lastName;
 
-        public Avtor(string firstName, string lastName)
+        public Writer(string firstName, string lastName)
         {   
             FirstName = firstName;
             LastName = lastName;
@@ -27,7 +27,9 @@ namespace App02._1
             set
             {
                 if (value.Length > LINE_LENGTH_STRING)
+                {
                     throw new ArgumentOutOfRangeException($"The maximum line length is {LINE_LENGTH_STRING} characters");
+                }
 
                 _firstName = value;
             }
@@ -42,7 +44,9 @@ namespace App02._1
             set
             {
                 if (value.Length > LINE_LENGTH_STRING)
+                {
                     throw new ArgumentOutOfRangeException($"The maximum line length is {LINE_LENGTH_STRING} characters");
+                }
 
                 _lastName = value;
             }
@@ -51,6 +55,10 @@ namespace App02._1
         public override string ToString()
         {
             return string.Format($"{FirstName} {LastName}");
+        }
+        public override bool Equals(object obj)
+        {
+            return obj != null && FirstName == ((Writer)obj).FirstName && LastName == ((Writer)obj).LastName;
         }
     }
 }

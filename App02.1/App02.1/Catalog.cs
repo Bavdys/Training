@@ -36,7 +36,9 @@ namespace App02._1
         public IEnumerator<Book> GetEnumerator()
         {
             foreach (var item in _books.OrderBy(bookItem => bookItem.Title))
+            {
                 yield return item;
+            }
         }
         
         public void Add(Book book)
@@ -49,10 +51,9 @@ namespace App02._1
             _books.Remove(book);
         }
         
-        public IEnumerable GetBooksForNameAvtor(Avtor avtor)
+        public IEnumerable GetBooksForNameAvtor(Writer avtor)
         {
-            return _books.Where(bookItem=>bookItem.Avtors.Contains(bookItem.Avtors.FirstOrDefault(avtorItem=> 
-            avtorItem.FirstName==avtor.FirstName && avtorItem.LastName==avtor.LastName)));
+            return _books.Where(bookItem=>bookItem.Avtors.Contains(bookItem.Avtors.FirstOrDefault(avtorItem=> avtorItem.Equals(avtor))));
         }
         
         public IEnumerable GetBooksForDateByDescending() 
@@ -60,7 +61,7 @@ namespace App02._1
             return _books.OrderBy(bookItem => bookItem.Date);
         }
        
-        public (Avtor,int)[] GetTupleAvtorsCountBooks()
+        public (Writer,int)[] GetTupleAvtorsCountBooks()
         {
             return _books.SelectMany(bookItem => bookItem.Avtors).GroupBy(avtorItem => avtorItem).Select(temp => (temp.Key, temp.Count())).ToArray();
         }
