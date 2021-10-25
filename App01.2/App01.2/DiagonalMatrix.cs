@@ -81,10 +81,7 @@ namespace App01._2
             {
                 for(int j = 0; j < Size; j++)
                 {
-                    if (i == j)
-                        displayMatrix.Append($"{_matrix[i]}\t");
-                    else
-                        displayMatrix.Append("0\t");
+                  displayMatrix.Append((i == j) ? $"{_matrix[i]}\t" : "0\t");
                 }
                 displayMatrix.Append('\n');
             }
