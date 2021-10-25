@@ -53,7 +53,7 @@ namespace App01._1
         /// <returns>A new string</returns>
         public override string ToString()
         {
-            return string.Format($"GUID: {Guid}\nText: {Text}\nDiscription: {Discription}\n\n\n");
+            return string.Format($"TEXT\nGUID: {Guid}\nText: {Text}\nDiscription: {Discription}\n\n\n");
         }
         
         /// <summary>

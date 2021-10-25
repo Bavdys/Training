@@ -15,20 +15,19 @@ namespace App01._1
             
             Lesson lesson = new Lesson(material,new byte[] { 77,50,120,70,46,29,22,55},"Text discription content");
 
+            Console.WriteLine("Lesson materials:");
             ShowMaterials(lesson.Materials);
+
+            Console.WriteLine("Lesson:");
+            Console.WriteLine(lesson.ToString());
+
+            Console.WriteLine("LessonType:");
+            Console.WriteLine(lesson.GetLessonType().ToString());
         }
         static void ShowMaterials(Material[] materials)
         {
             foreach (var item in materials)
                 Console.WriteLine(item);
-        }
-        static void ShowLesson(Lesson lesson)
-        {
-            Console.WriteLine(lesson);
-        }
-        static void ShowLessonType(Lesson lesson)
-        {
-            Console.WriteLine(lesson.GetLessonType().ToString());
         }
     }
 }

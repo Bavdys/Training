@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace App01._1
+﻿namespace App01._1
 {
     /// <summary>
     /// Represent a version.

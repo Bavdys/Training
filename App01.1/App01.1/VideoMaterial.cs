@@ -85,7 +85,7 @@ namespace App01._1
             foreach (var item in Version)
                 builder.Append($"{item}  ");
 
-            return string.Format($"GUID: {Guid}\nVersion: {builder.ToString()}\nURI Video: {URIContent}\nURI Image: {URIImage}\n" +
+            return string.Format($"VIDEO\nGUID: {Guid}\nVersion: {builder.ToString()}\nURI Video: {URIContent}\nURI Image: {URIImage}\n" +
                 $"Video format: {VideoFormat.ToString()}\nDiscription: {Discription}\n\n\n");
         }
        

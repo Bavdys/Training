@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace App01._1
+﻿namespace App01._1
 {
     /// <summary>
     /// Represent network resource.
@@ -45,7 +43,7 @@ namespace App01._1
         /// <returns>A new string</returns>
         public override string ToString()
         {
-            return string.Format($"GUID: {Guid}\nURI Resource: {URIContent}\nTypeLink: {TypeLink.ToString()}\nDiscription: {Discription}\n\n\n");
+            return string.Format($"NETWORK\nGUID: {Guid}\nURI Resource: {URIContent}\nTypeLink: {TypeLink.ToString()}\nDiscription: {Discription}\n\n\n");
         }
         
         /// <summary>
