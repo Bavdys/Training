@@ -51,10 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JSONFileManager.cs" />
+    <Compile Include="IReadRepository.cs" />
+    <Compile Include="IWriteRepository.cs" />
+    <Compile Include="JSONRepository.cs" />
     <Compile Include="Models\Configuration.cs" />
-    <Compile Include="ConfigurationContext.cs" />
-    <Compile Include="XMLFileManager.cs" />
+    <Compile Include="XMLRepository.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

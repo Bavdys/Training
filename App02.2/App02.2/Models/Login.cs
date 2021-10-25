@@ -14,30 +14,19 @@ namespace App02._2
         }
 
         public string Name { get; set; }
-        public bool IsCorrectLogin
-        {
-            get
-            {
-                var resultSearch = Windows.Where(tempTitle => tempTitle.Title == NAME_WINDOW);
-
-                if (resultSearch.Count() == 0)
-                {
-                    return true;
-                }
-                else if (resultSearch.Count() == 1)
-                {
-                    foreach (var item in resultSearch)
-                    {
-                        return (item.Top.HasValue && item.Left.HasValue && item.Width.HasValue && item.Height.HasValue);
-                    }
-                }
-
-                return false;
-
-            }
-        }
         public List<Window> Windows { get; set; }
 
+        public bool IsCorrectLogin()
+        {
+            var resultSearch = Windows.Where(tempTitle => tempTitle.Title == NAME_WINDOW).ToList();
+
+            if (resultSearch.Count() == 1)
+            {
+                return resultSearch[0].Top.HasValue && resultSearch[0].Left.HasValue && resultSearch[0].Width.HasValue && resultSearch[0].Height.HasValue;
+            }
+
+            return resultSearch.Count() == 0 ;
+        }
         public override string ToString()
         {
             StringBuilder loginStringBuilder = new StringBuilder();
