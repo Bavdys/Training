@@ -28,7 +28,7 @@ namespace App02._1
             {
                 if (value.Length > LINE_LENGTH_STRING)
                 {
-                    throw new ArgumentOutOfRangeException($"The maximum line length is {LINE_LENGTH_STRING} characters");
+                    throw new ArgumentException($"The maximum line length is {LINE_LENGTH_STRING} characters");
                 }
 
                 _firstName = value;
@@ -45,7 +45,7 @@ namespace App02._1
             {
                 if (value.Length > LINE_LENGTH_STRING)
                 {
-                    throw new ArgumentOutOfRangeException($"The maximum line length is {LINE_LENGTH_STRING} characters");
+                    throw new ArgumentException($"The maximum line length is {LINE_LENGTH_STRING} characters");
                 }
 
                 _lastName = value;

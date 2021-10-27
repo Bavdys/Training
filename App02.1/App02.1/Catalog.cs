@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,9 +50,9 @@ namespace App02._1
             _books.Remove(book);
         }
         
-        public IEnumerable GetBooksForNameAvtor(Writer avtor)
+        public List<Book> GetBooksForNameAvtor(Writer avtor)
         {
-            return _books.Where(bookItem=>bookItem.Avtors.Contains(bookItem.Avtors.FirstOrDefault(avtorItem=> avtorItem.Equals(avtor))));
+            return _books.Where(bookItem=>bookItem.Avtors.Contains(bookItem.Avtors.FirstOrDefault(avtorItem=> avtorItem.Equals(avtor)))).ToList();
         }
         
         public IEnumerable GetBooksForDateByDescending() 
@@ -77,7 +76,5 @@ namespace App02._1
 
             return string.Format($"{builderCatalog}");
         }
-
-
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace App02._1
+﻿namespace App02._1
 {
     class Program
     {

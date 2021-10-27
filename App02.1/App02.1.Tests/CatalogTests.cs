@@ -8,7 +8,7 @@ namespace App02._1.Tests
     public class CatalogTests
     {
         [Test]
-        public void NotEmpty_GetBooksForNameAvtor_CollectionBooks()
+        public void Count_GetBooksForNameAvtor_CollectionBooks()
         {
             var avtor = new Writer("Charles", "Dickens");
             var book = new Book("Oliver Twist","2463376978034",Convert.ToDateTime("05.10.1838"),new List<Writer> { avtor});
@@ -17,7 +17,7 @@ namespace App02._1.Tests
             catalog.Add(book);
             var result = catalog.GetBooksForNameAvtor(avtor);
 
-            CollectionAssert.IsNotEmpty(result);
+            Assert.AreEqual(1,result.Count);
         }
     }
 }
