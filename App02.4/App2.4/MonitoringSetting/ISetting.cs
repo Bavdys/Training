@@ -2,7 +2,7 @@
 
 namespace App2._4
 {
-    interface ISetting
+    public interface ISetting
     {
         List<IAuditor> SettingMonitoring();
     }

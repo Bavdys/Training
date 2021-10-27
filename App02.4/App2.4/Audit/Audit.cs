@@ -6,11 +6,12 @@ using System.Threading;
 
 namespace App2._4
 {
-    class Audit:IAuditor
+    public class Audit:IAuditor
     {
         private static Logger _logger;
         private static readonly string PATH = @"Configuration/LoggerSettings.json";
-        private object _locker = new object();
+        private object _Logginlocker = new object();
+        private object _Maillocker = new object();
         private Timer _timer;
 
         static Audit()
@@ -34,14 +35,21 @@ namespace App2._4
             }
             catch (WebException ex)
             {
-                Mail.Send($"Site {Url} is not available");
+                //Send($"Site {Url} is not available");
             }
         }
         private void Logging(object message)
         {
-            lock (_locker)
+            lock (_Logginlocker)
             {
                 _logger.Info(message);
+            }
+        }
+        private void Send(object message)
+        {
+            lock (_Maillocker)
+            {
+                Mail.Send(message);
             }
         }
         

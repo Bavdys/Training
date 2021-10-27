@@ -6,7 +6,7 @@
       "Url": "http://somesite.com/myfile.txt",
       "Mail": {
         "RecipientName": "Igor",
-        "RecepientMail": "igor@gmail.com"
+        "RecipientMail": "bavdis1996@gmail.com"
       }
     },
     {
@@ -15,7 +15,7 @@
       "Url": "https://docs.microsoft.com/ru-ru/?view=net-5.0",
       "Mail": {
         "RecipientName": "Ivan",
-        "RecepientMail": "ivan@gmail.com"
+        "RecipientMail": "bavdis1996@gmail.com"
       }
     }
   ]

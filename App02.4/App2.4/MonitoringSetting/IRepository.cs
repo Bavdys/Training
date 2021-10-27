@@ -2,7 +2,7 @@
 
 namespace App2._4.MonitoringSetting
 {
-    interface IRepository
+    public interface IRepository
     {
         string PathFile { get; }
         AuditsCollectionModel LoadFromFile();

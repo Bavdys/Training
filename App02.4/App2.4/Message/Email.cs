@@ -4,7 +4,7 @@ using MimeKit;
 
 namespace App2._4
 {
-    class Email:IMessage
+    public class Email:IMessage
     {
         public Email(string recipientName, string recipientMail)
         {
@@ -20,7 +20,10 @@ namespace App2._4
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress("Sender", "sender@gmail.com"));
-            emailMessage.To.Add(new MailboxAddress(RecipientName, RecipientMail));
+            
+            MailboxAddress mailboxAddress = new MailboxAddress(RecipientName, RecipientMail);
+
+            emailMessage.To.Add(mailboxAddress);
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Plain)
             {
                 Text = message.ToString()

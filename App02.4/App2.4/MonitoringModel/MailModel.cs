@@ -1,6 +1,6 @@
 ﻿namespace App2._4.MonitoringModel
 {
-    class MailModel
+    public class MailModel
     {
         public MailModel()
         {

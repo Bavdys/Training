@@ -5,10 +5,15 @@ using System.Text.Json;
 
 namespace App2._4.MonitoringSetting
 {
-    class JsonRepository : IRepository
+    public class JsonRepository : IRepository
     {
         public JsonRepository(string path)
         {
+            if(string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentException("Value cannot by empty");
+            }
+
             PathFile = path;
         }
 

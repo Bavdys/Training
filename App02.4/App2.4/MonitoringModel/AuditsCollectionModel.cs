@@ -2,13 +2,13 @@
 
 namespace App2._4.MonitoringModel
 {
-    class AuditsCollectionModel
+    public class AuditsCollectionModel
     {
         public AuditsCollectionModel()
         {
 
         }
-        
-        public List<AuditModel> Audits { get; set; }
+
+        public List<AuditModel> Audits { get; set; } = new List<AuditModel>();
     }
 }

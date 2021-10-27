@@ -2,7 +2,7 @@
 
 namespace App2._4
 {
-    interface IAuditor
+    public interface IAuditor
     {
         int Interval { get; set; }
         int MaximumResponse { get; set; }

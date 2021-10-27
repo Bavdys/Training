@@ -1,14 +1,20 @@
 ﻿using App2._4.MonitoringModel;
 using System.Collections.Generic;
+using System;
 
 namespace App2._4.MonitoringSetting
 {
-    class FileSetting : ISetting
+    public class FileSetting : ISetting
     {
         private IRepository _repository;
 
         public FileSetting(IRepository repository)
         {
+            if(repository == null)
+            {
+                throw new ArgumentNullException("Value cannot by null");
+            }
+
             _repository = repository;
         }
        
