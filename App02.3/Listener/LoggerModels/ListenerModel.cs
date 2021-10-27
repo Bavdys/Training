@@ -11,6 +11,6 @@
         public string Type { get; set; }
         public string Assembly { get; set; }
         public string Source { get; set; }
-        public LayoutModel Layout { get; set; }
+        public LayoutModel Layout { get; set; } = new LayoutModel();
     }
 }

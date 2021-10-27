@@ -1,6 +1,7 @@
 ﻿using Listener;
 using Listener.Layout;
 using System.Diagnostics;
+using System;
 
 namespace EventLogListener
 {
@@ -19,6 +20,11 @@ namespace EventLogListener
 
         public void Write(LoggerData loggerData)
         {
+            if(loggerData == null)
+            {
+                throw new ArgumentNullException("Object cannot be null");
+            }
+
             string resultDataString = Layout.Format(loggerData);
 
             if (!EventLog.SourceExists(Source))

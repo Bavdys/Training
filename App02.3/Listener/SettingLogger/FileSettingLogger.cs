@@ -20,7 +20,7 @@ namespace Listener
         {
             LoggerModel loggerModel = _repository.LoadFromFile();
             
-            Logger logger = new Logger() { Name = loggerModel.Name, Threshold = new Level((LevelValue)Enum.Parse(typeof(LevelValue), loggerModel.Level)) };
+            Logger logger = new Logger(loggerModel.Name) { Threshold = new Level((LevelValue)Enum.Parse(typeof(LevelValue), loggerModel.Level)) };
 
             foreach (var listenerModel in loggerModel.Listeners)
             {    

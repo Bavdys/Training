@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Listener;
 using Listener.Layout;
 
@@ -19,6 +20,11 @@ namespace TextListener
 
         public  void Write(LoggerData loggerData)
         {
+            if (loggerData == null)
+            {
+                throw new ArgumentNullException("Object cannot be null");
+            }
+
             string resultDataString = Layout.Format(loggerData);
 
             if (!Directory.Exists(Path.GetDirectoryName(Source)))

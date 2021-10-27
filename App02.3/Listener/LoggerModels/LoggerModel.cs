@@ -11,6 +11,6 @@ namespace Listener.LoggerModels
 
         public string Name { get; set; }
         public string Level { get; set; }
-        public List<ListenerModel> Listeners { get; set; }
+        public List<ListenerModel> Listeners { get; set; } = new List<ListenerModel>();
     }
 }

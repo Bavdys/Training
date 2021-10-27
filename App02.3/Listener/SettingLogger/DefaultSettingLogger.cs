@@ -21,7 +21,7 @@ namespace Listener
 
             Type type = assembly.GetType(TYPE_LISTENER, true, true);
             
-            Logger logger = new Logger() { Name = DEFAULT_LOGGER_NAME, Threshold = new Level(DEFAULT_LEVEL_VALUE) };
+            Logger logger = new Logger(DEFAULT_LOGGER_NAME) { Threshold = new Level(DEFAULT_LEVEL_VALUE) };
 
             IListener listener = (IListener)Activator.CreateInstance(type,
                    new object[] { DEFAULT_LISTENER_NAME, DEFAULT_LESTENER_SOURCE, new PatternLayout(DEFAULT_LAYOUT_PATTERN_STRING) });

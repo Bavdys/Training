@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Listener;
 using Listener.Layout;
+using System;
 using System.IO;
 
 namespace WordListener
@@ -21,9 +22,14 @@ namespace WordListener
         public ILayout Layout { get; set; }
 
 
-        public void Write(LoggerData loggingData)
+        public void Write(LoggerData loggerData)
         {
-            string resultDataString = Layout.Format(loggingData);
+            if (loggerData == null)
+            {
+                throw new ArgumentNullException("Object cannot be null");
+            }
+
+            string resultDataString = Layout.Format(loggerData);
 
             if (!Directory.Exists(Path.GetDirectoryName(Source)))
             {

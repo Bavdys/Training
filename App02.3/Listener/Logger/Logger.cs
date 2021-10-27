@@ -47,6 +47,11 @@ namespace Listener
             return stringBuilder.ToString();
         }
 
+        public Logger(string name)
+        {
+            Name = name;
+        }
+
         public List<IListener> Listener { get; set; } = new List<IListener>();
         public string Name { get; set; }
         public ILevel Threshold { get; set; }

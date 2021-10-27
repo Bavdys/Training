@@ -12,8 +12,13 @@ namespace Listener.Layout
 
         public string PatternString { get; set; }
 
-        public string Format(LoggerData loggingData)
+        public string Format(LoggerData loggerData)
         {
+            if (loggerData == null)
+            {
+                throw new ArgumentNullException("Object cannot be null");
+            }
+
             string[] splitString = PatternString.Split('%');
             StringBuilder resultString = new StringBuilder();
 
@@ -32,13 +37,13 @@ namespace Listener.Layout
                         resultString.Append($"{DateTime.Now}   ");
                         break;
                     case PatternValue.Level:
-                        resultString.Append($"[{loggingData.Threshold}]   ");
+                        resultString.Append($"[{loggerData.Threshold}]   ");
                         break;
                     case PatternValue.Logger:
-                        resultString.Append($"{loggingData.LoggerName}   ");
+                        resultString.Append($"{loggerData.LoggerName}   ");
                         break;
                     case PatternValue.Message:
-                        resultString.Append($"{loggingData.MessageObject}   ");
+                        resultString.Append($"{loggerData.MessageObject}   ");
                         break;
                 }
             }
