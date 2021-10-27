@@ -7,10 +7,10 @@ namespace App02._2
     {
         public Configuration()
         {
-            Logins = new List<Login>();
+            
         }
 
-        public List<Login> Logins { get; set; }
+        public List<Login> Logins { get; set; } = new List<Login>();
 
         public void LoadFromFile(string path, IReadRepository repository)
         {

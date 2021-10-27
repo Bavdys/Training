@@ -8,17 +8,24 @@ namespace App02._2
         {
             Configuration configuration = new Configuration();
 
-            IReadRepository xmlRead = new XMLRepository();
-            configuration.LoadFromFile(@"Config\XMLConfiguration.xml", xmlRead);
+            try
+            {
+                IReadRepository xmlRead = new XMLRepository();
+                configuration.LoadFromFile(@"Config\XMLConfiguration.xml", xmlRead);
 
-            Console.WriteLine("Logins:");
-            Console.WriteLine(configuration.ToString());
+                Console.WriteLine("Logins:");
+                Console.WriteLine(configuration.ToString());
 
-            Console.WriteLine("Incorrect Loggins:");
-            Console.WriteLine(configuration.IncorrectLogins());
+                Console.WriteLine("Incorrect Loggins:");
+                Console.WriteLine(configuration.IncorrectLogins());
 
-            IWriteRepository jsonWrite = new JSONRepository();
-            configuration.SaveLoginsConfigurationToJson(jsonWrite);
+                IWriteRepository jsonWrite = new JSONRepository();
+                configuration.SaveLoginsConfigurationToJson(jsonWrite);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

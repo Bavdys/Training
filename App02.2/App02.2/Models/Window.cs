@@ -1,7 +1,5 @@
-﻿
-namespace App02._2
+﻿namespace App02._2
 {
-    
     public class Window
     {
         public Window() { }

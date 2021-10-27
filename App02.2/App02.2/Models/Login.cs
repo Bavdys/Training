@@ -10,11 +10,11 @@ namespace App02._2
 
         public Login()
         {
-            Windows = new List<Window>();
+
         }
 
         public string Name { get; set; }
-        public List<Window> Windows { get; set; }
+        public List<Window> Windows { get; set; } = new List<Window>();
 
         public bool IsCorrectLogin()
         {
