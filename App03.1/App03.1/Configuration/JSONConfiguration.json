@@ -1,0 +1,22 @@
+{
+  "Sensors": [
+    {
+      "Various": "Temperature",
+      "Min": -10,
+      "Max": 10,
+      "MeasuredValue": 1
+    },
+    {
+      "Various": "Pressure",
+      "Min": -10,
+      "Max": 10,
+      "MeasuredValue": 1
+    },
+    {
+      "Various": "Magnetic",
+      "Min": -10,
+      "Max": 10,
+      "MeasuredValue": 2
+    }
+  ]
+}

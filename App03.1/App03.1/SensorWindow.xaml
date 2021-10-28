@@ -1,0 +1,92 @@
+﻿<Window x:Class="App03._1.SensorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" ResizeMode="NoResize" Height="450" Width="530">
+    <Window.Resources>
+        <Style x:Key="controlButton" TargetType="Button">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Margin" Value="5,10,5,10"/>
+        </Style>
+        
+        <Style x:Key="stateButton" BasedOn="{StaticResource controlButton}" TargetType="Button">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=sensorsList,Path=SelectedItem, Mode=OneWay}" Value="{x:Null}">
+                    <Setter Property="Button.IsEnabled" Value="False" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=sensorsList,Path=IsEnabled, Mode=OneWay}" Value="false">
+                    <Setter Property="Button.IsEnabled" Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" LastChildFill="False">
+            <Menu x:Name="mainMenu" DockPanel.Dock="Top" Margin="5,0,5,0">
+                <MenuItem Header="_File">
+                    <MenuItem x:Name="openMenu" Header="_Load">
+                        <MenuItem x:Name="JSONLoad" Header="_JSON" Click="JSONLoad_Click"/>
+                        <MenuItem x:Name="XMLLoad" Header="_XML" Click="XMLLoad_Click"/>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Name="exitMune" Header="_Exit" Click="exitMune_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <ListView Name="sensorsList" Grid.Row="1" Margin="5,0,5,0" HorizontalContentAlignment="Center" SelectionChanged="sensorsList_SelectionChanged"> 
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Various}" Width="200">Sensor</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=MeasurementInterval.Min}" Width="80">Min</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=MeasurementInterval.Max}" Width="80">Max</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=MeasuredValue}" Width="150">Measured value</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid x:Name="sensorGrid" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <TextBlock x:Name="stateTextBlock" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Run Text="State: "/>
+                    <Run Name="stateRun" Text="{Binding Path=VariousState}"/>
+                </TextBlock>
+            </Grid>
+
+            <ProgressBar x:Name="sensorProgressBar" Value="{Binding Path=CurrentValue}" Minimum="{Binding Path=MeasurementInterval.Min}" Maximum="{Binding Path=MeasurementInterval.Max}"
+                         Grid.Row="1" Margin="5,15,5,5"/>
+
+            <Grid Grid.Row="2">
+                <Label x:Name="minValueLabel" Content="{Binding Path=MeasurementInterval.Min}"/>
+                <TextBlock x:Name="currentValueTextBlock" HorizontalAlignment="Center">
+                    <Run Text="Current value: "/>
+                    <Run x:Name="currentValueRun" Text="{Binding Path=CurrentValue}"/>
+                </TextBlock>
+                <Label x:Name="maxValueLabel" Content="{Binding Path=MeasurementInterval.Max}" HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button x:Name="addButton" Content="Add" Style="{StaticResource controlButton}" Click="addButton_Click"/>
+            <Button x:Name="removeButton" Content="Remove" Style="{StaticResource stateButton}" Click="removeButton_Click"/>
+            <Button x:Name="startButton"  Content="Get Started" Style="{StaticResource stateButton}" Click="startButton_Click"/>
+            <Button x:Name="switchModeButton" Content="Switch Mode" Style="{StaticResource stateButton}" Click="switchModeButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
