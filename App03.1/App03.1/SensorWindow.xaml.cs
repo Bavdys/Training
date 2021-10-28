@@ -6,7 +6,7 @@ using System.Windows.Threading;
 namespace App03._1
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SensorWindow.xaml
     /// </summary>
     /// 
     public partial class SensorWindow : Window
@@ -32,11 +32,9 @@ namespace App03._1
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
-            sensorsList.IsEnabled = false;
-           
             Start start = new Start(MeasurementStart);
 
-            start.BeginInvoke(null, null);
+            StartSensor(start);
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -88,11 +86,16 @@ namespace App03._1
 
         private void switchModeButton_Click(object sender, RoutedEventArgs e)
         {
-            sensorsList.IsEnabled = false;
-
             Start start = new Start(SwitchStart);
 
-            start.BeginInvoke(null, null);
+            StartSensor(start);
+        }
+
+        private void StartSensor(Start start)
+        {
+            sensorsList.IsEnabled = false;
+                
+            start.BeginInvoke(null,null);
         }
 
         private void MeasurementStart()
