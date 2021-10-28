@@ -23,9 +23,9 @@ namespace App03._1
         public override void Switch(Mode mode,Sensor sensor)
         {
             Random random = new Random();
-            
+
             sensor.VariousState = VariousState.Working;
-            
+
             for (int j = 0; j < 5; j++)
             {
                 sensor.CurrentValue = random.Next(sensor.MeasurementInterval.Min, sensor.MeasurementInterval.Max);

@@ -22,7 +22,7 @@ namespace App03._1
         public override void Switch(Mode mode,Sensor sensor)
         {
             sensor.VariousState = VariousState.Calibration;
-            
+
             while (sensor.CurrentValue < sensor.MeasurementInterval.Max)
             {
                 sensor.CurrentValue += sensor.MeasuredValue;

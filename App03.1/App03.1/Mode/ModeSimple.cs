@@ -22,10 +22,11 @@ namespace App03._1
         public override void Switch(Mode mode,Sensor sensor)
         {
             sensor.VariousState = VariousState.Simple;
+
             sensor.CurrentValue = sensor.MeasurementInterval.Min;
                
             Thread.Sleep(1000);
-            
+
             mode.State = ModeCalibration.GetInstance();
         }
     }
