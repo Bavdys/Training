@@ -29,7 +29,12 @@ namespace App2._4
                 monitoring.Start();
 
                 Console.WriteLine("If you want to exit please press ENTER or ESC");
-                Console.ReadKey();
+                ConsoleKeyInfo consoleKeyInfo;
+                do
+                {
+                    consoleKeyInfo =Console.ReadKey(true);
+                
+                } while (!(consoleKeyInfo.Key == ConsoleKey.Enter || consoleKeyInfo.Key == ConsoleKey.Escape));
             }
             catch(Exception ex)
             {

@@ -35,7 +35,7 @@ namespace App2._4
             }
             catch (WebException ex)
             {
-                //Send($"Site {Url} is not available");
+                Send($"Site {Url} is not available");
             }
         }
         private void Logging(object message)
