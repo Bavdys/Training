@@ -1,0 +1,22 @@
+{
+  "Audits": [
+    {
+      "Interval": 5,
+      "MaximumResponse": 1,
+      "Url": "http://somesite.com/myfile.txt",
+      "Mail": {
+        "RecipientName": "Igor",
+        "RecipientMail": "bavdis1996@gmail.com"
+      }
+    },
+    {
+      "Interval": 10,
+      "MaximumResponse": 1,
+      "Url": "https://docs.microsoft.com/ru-ru/?view=net-5.0",
+      "Mail": {
+        "RecipientName": "Ivan",
+        "RecipientMail": "bavdis1996@gmail.com"
+      }
+    }
+  ]
+}

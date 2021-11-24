@@ -1,0 +1,15 @@
+{
+  "Name": "JsonLogger",
+  "Level": "DEBUG",
+  "Listeners": [
+    {
+      "Name": "JsonListener",
+      "Type": "TextListener.TextListener",
+      "Assembly": "TextListener",
+      "Source": "Log/Log.txt",
+      "Layout": {
+        "PatternString": "%Date%Level%Logger%Message"
+      }
+    }
+  ]
+}
