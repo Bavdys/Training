@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sensors>
+	<sensor>
+		<various>Temperature</various>
+		<min>-10</min>
+		<max>10</max>
+		<measuredValue>1</measuredValue>
+	</sensor>
+	<sensor>
+		<various>Pressure</various>
+		<min>0</min>
+		<max>10</max>
+		<measuredValue>1</measuredValue>
+	</sensor>
+	<sensor>
+		<various>Magnetic</various>
+		<min>0</min>
+		<max>20</max>
+		<measuredValue>1</measuredValue>
+	</sensor>
+</sensors>

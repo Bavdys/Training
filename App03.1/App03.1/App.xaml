@@ -1,0 +1,9 @@
+﻿<Application x:Class="App03._1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:App03._1"
+             StartupUri="SensorWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
