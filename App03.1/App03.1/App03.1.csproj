@@ -74,7 +74,6 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\JSONFactory.cs" />
     <Compile Include="Repository\JSONRepository.cs" />
-    <Compile Include="Sensors\CollectionSensors.cs" />
     <Compile Include="Sensors\MeasurementInterval.cs" />
     <Compile Include="Sensors\Sensor.cs" />
     <Compile Include="SensorController.cs" />

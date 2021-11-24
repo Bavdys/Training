@@ -17,7 +17,7 @@ namespace App03._1
         {
             InitializeComponent();
 
-            sensorsList.ItemsSource = Controller.CollectionSensors.Sensors;
+            sensorsList.ItemsSource = Controller.Sensors;
         }
 
         private void removeButton_Click(object sender, RoutedEventArgs e)

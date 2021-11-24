@@ -85,7 +85,7 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" FlowDirection="RightToLeft">
             <Button x:Name="addButton" Content="Add" Style="{StaticResource controlButton}" Click="addButton_Click"/>
             <Button x:Name="removeButton" Content="Remove" Style="{StaticResource stateButton}" Click="removeButton_Click"/>
-            <Button x:Name="startButton"  Content="Get Started" Style="{StaticResource stateButton}" Click="startButton_Click"/>
+            <Button x:Name="startButton"  Content="Start" Style="{StaticResource stateButton}" Click="startButton_Click"/>
             <Button x:Name="switchModeButton" Content="Switch Mode" Style="{StaticResource stateButton}" Click="switchModeButton_Click"/>
         </StackPanel>
     </Grid>
