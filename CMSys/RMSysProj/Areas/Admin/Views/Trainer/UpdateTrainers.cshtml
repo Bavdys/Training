@@ -1,0 +1,30 @@
+﻿@model TrainerEditViewModel
+@{
+    ViewData["Title"] = "Update Trainer - CMSys";
+}
+
+<h3 class="m-3">Update Trainer: @ViewData["FullName"]</h3>
+
+<form asp-action="UpdateTrainer" class="mr-3 ml-3 p-3 bg-white">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group w-50">
+        <label asp-for="GroupId"></label>
+        <select asp-for="GroupId" class="form-control" asp-items="@(new SelectList(Model.TrainerGroups, "Id", "Name",Model.GroupId))"></select>
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="VisualOrder"></label>
+        <input asp-for="VisualOrder" type="number" class="form-control" />
+        <span asp-validation-for="VisualOrder" class="text-danger"></span>
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Update" />
+</form>
+
+<a href="~/admin/trainers" class="btn btn-outline-secondary m-3">Back to List</a>
+
+@section JSFiles{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

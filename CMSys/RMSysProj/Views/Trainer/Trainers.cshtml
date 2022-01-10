@@ -1,0 +1,38 @@
+﻿@model List<TrainerPageViewModel>
+@{
+    ViewData["Title"] = "Trainers";
+}
+
+<h3 class="m-3">Trainers</h3>
+<ul class="list-group">
+    @foreach (var itemList in Model)
+    {
+        <li class="list-group-item alice-blue-color m-3 p-0">
+            <h6 class="text-primary m-3">@itemList.TrainerGroup.Name</h6>
+            <div class="d-flex flex-wrap bg-white">
+                @foreach (var itemTrainer in itemList.Trainers)
+                {
+                    <div class="d-flex flex-column border calc-weight-4 m-3 p-3">
+                        <img  width="90" height="120" src="data:image/jpeg;base64,@itemTrainer.PhotoUrl" />
+                        <div>
+                            <span class="d-block text-primary">@itemTrainer.FullName</span>
+                            @if (!string.IsNullOrEmpty(itemTrainer.Description))
+                            {
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trainerInformationModal" data-bs-id="@itemTrainer.Id">
+                                    <span><i class="fas fa-exclamation text-white"></i></span>
+                                </button>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </li>
+    }
+</ul>
+
+@await Html.PartialAsync("_TrainerInformationModalWindowPartial")
+
+@section JSFiles{ 
+    <script src="~/js/TrainerInformationModalWindow.js"></script>
+}
+

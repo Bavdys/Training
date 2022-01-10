@@ -1,0 +1,17 @@
+.vs
+
+CMSys.Common/bin
+CMSys.Common/obj
+
+CMSys.Core/bin
+CMSys.Core/obj
+
+CMSys.Database/bin
+CMSys.Database/obj
+
+CMSys.Infrastructure/bin
+CMSys.Infrastructure/obj
+
+RMSysProj/bin
+RMSysProj/obj
+RMSysProj/wwwroot/lib

@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Course Groups";
+}
+
+<div class="d-flex justify-content-between m-3">
+    <h3>Course Groups</h3>
+    <button id="createGroup" class="btn btn-primary" data-toggle="modal" data-target="#groupsModal">
+        <span><i class="far fa-plus-square"></i></span>
+        Create Group
+    </button>
+</div>
+
+<div class="m-3 p-3 bg-white">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Order</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+@await Html.PartialAsync("_GroupsModalWindowPartial")
+
+@section JSFiles{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/js/Group.js"></script>
+}

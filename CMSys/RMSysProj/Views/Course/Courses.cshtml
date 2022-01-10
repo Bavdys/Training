@@ -1,0 +1,40 @@
+﻿@model CoursePageViewModel
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h3 class="m-3">Courses</h3>
+
+<div class="d-flex justify-content-between m-3">
+    <page-link page-list-view-model="@Model.PageList" page-action="Courses"></page-link>
+    <div>
+        <select class="select-custom select" name-path ="/courses" name-parameter="type" asp-items="@(new SelectList(Model.CourseTypes, "Id", "Name",ViewBag.SelectedType))">
+            <option value="">All Types</option>
+        </select>
+        <select class="select-custom select" name-path="/courses" name-parameter="group" asp-items="@(new SelectList(Model.CourseGroups, "Id", "Name",ViewBag.SelectedGroup))">
+            <option value="">All Groups</option>
+        </select>
+    </div>
+</div>
+
+<ul class="list-group">
+    @foreach(var item in Model.Courses)
+    {
+        <li class="list-group-item bg-white m-3">
+            <div>
+                <h6>@item.Name</h6>
+                <div class="d-flex">
+                    <span class="badge bg-primary text-white mr-1">@item.CourseGroup.Name</span>
+                    <span class="badge bg-secondary text-white mr-1">@item.CourseType.Name</span>
+                </div>
+                <p>@item.Description</p>
+                <a href="~/courses/@item.Id">More info...</a>
+            </div>
+        </li>
+    }
+
+</ul>
+
+@section JSFiles{
+    <script src="~/js/Course.js"></script>
+}

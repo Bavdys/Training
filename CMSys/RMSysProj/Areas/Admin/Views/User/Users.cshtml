@@ -1,0 +1,61 @@
+﻿@model UserPageViewModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h3 class="m-3">Users</h3>
+<div class="m-3 p-3 bg-white">
+    <div class="d-flex justify-content-between">
+        <page-link page-list-view-model="@Model.PageListViewModel" page-action="Users"></page-link>
+        <div class="input-group w-25">
+            <input type="text" class="form-control" placeholder="Search for ..." id="srcInput">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="srcButton">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="p-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Office</th>
+                    <th scope="col">Active?</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.Users)
+                {
+                    <tr>
+                        <td>
+                            <img height="70" width="50" src="data:image/jpeg;base64,@item.Photo" />
+                            <span>@item.FullName</span>
+                        </td>
+                        <td>@item.Department</td>
+                        <td>@item.Position</td>
+                        <td>@item.Office</td>
+                        <td>@item.Active</td>
+                        <td>
+                            <div class="d-flex">
+                                <a href="~/admin/users/@item.Id" class="btn btn-outline-primary mr-1">
+                                    <span><i class="fas fa-exclamation"></i></span>
+                                </a>
+                                <a href="~/admin/users/update/@item.Id" class="btn btn-outline-warning">
+                                    <span><i class="fas fa-pen"></i></span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section JSFiles{
+    <script src="~/js/User.js"></script>
+}

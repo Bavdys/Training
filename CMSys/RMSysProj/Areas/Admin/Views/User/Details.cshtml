@@ -1,0 +1,33 @@
+﻿@model UserDetailsViewModel
+
+@{ 
+    ViewData["Title"] = "Profile - CMSys";
+}
+
+<h3 class="m-3">@Model.FullName</h3>
+
+<div class="d-flex ml-3">
+    <img width="200" src="data:image/jpeg;base64,@Model.Photo" />
+    <div class="bg-white p-3">
+        <p>Department: @Model.Department</p>
+        <p>Location: @Model.Office</p>
+        <p>Position: @Model.Position</p>
+        <p>StartDate: @Model.StartDate.ToShortDateString()</p>
+        <div class="d-flex">
+            Roles:
+            @foreach (var item in Model.Roles)
+            {
+                if (item.Name == "Admin")
+                {
+                    <span class="badge bg-danger text-center text-white mr-1">@item.Name</span>
+                }
+                else if (item.Name == "User")
+                {
+                    <span class="badge bg-primary text-white mr-1">@item.Name</span>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<a href="~/admin/users" class="btn btn-outline-secondary m-3">Back to List</a>
