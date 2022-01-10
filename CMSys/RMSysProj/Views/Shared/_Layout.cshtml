@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CMSys</title>
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-auto d-flex flex-column bg-primary">
+                <div id="collapse">
+                    <div class="d-flex justify-content-center mt-2">
+                        <i class="far fa-smile-wink fa-2x text-white p-2"></i>
+                        <span class="font-bold text-white align-self-center p-2">CMSYS</span>
+                    </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item main-navigation mt-1 mb-1">
+                            <a class="nav-link url lavender-blush-color" href="~/courses">
+                                <span><i class="far fa-list-alt"></i></span>
+                                Courses
+                            </a>
+                        </li>
+                        <li class="nav-item main-navigation mt-1 mb-1">
+                            <a class="nav-link url lavender-blush-color" href="~/trainers">
+                                <span><i class="fas fa-user-friends"></i></span>
+                                Trainers
+                            </a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+
+                            <li class="nav-item  mt-1 mb-1"><hr /></li>
+                            <li class="nav-item main-navigation mt-1 mb-1">
+                                <a class="nav-link url lavender-blush-color" href="~/admin/courses">
+                                    <span><i class="fas fa-list-ul"></i></span>
+                                    Course List
+                                </a>
+                            </li>
+                            <li class="nav-item main-navigation mt-1 mb-1">
+                                <a class="nav-link url lavender-blush-color" href="~/admin/coursegroups">
+                                    <span><i class="fas fa-list-ul"></i></span>
+                                    Course Groups
+                                </a>
+                            </li>
+                            <li class="nav-item main-navigation mt-1 mb-1">
+                                <a class="nav-link url lavender-blush-color" href="~/admin/trainers">
+                                    <span><i class="fas fa-list-ul"></i></span>
+                                    Trainer List
+                                </a>
+                            </li>
+                            <li class="nav-item main-navigation mt-1 mb-1">
+                                <a class="nav-link url lavender-blush-color" href="~/admin/trainergroups">
+                                    <span><i class="fas fa-user-friends"></i></span>
+                                    Trainer Groups
+                                </a>
+                            </li>
+                            <li class="nav-item main-navigation mt-1 mb-1">
+                                <a class="nav-link url lavender-blush-color" href="~/admin/users">
+                                    <span><i class="fas fa-user"></i></span>
+                                    Users
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <button id="btnCollapse" type="button" class="btn btn-custom light-blue-color align-self-center mt-3">
+                    <span>
+                        <i id="icnCollapse" class="fas fa-angle-left fa-1x text-white"></i>
+                    </span>
+                </button>
+            </nav>
+            <main class="col-10 d-flex flex-column min-vh-100 bg-white p-0">
+                <header class="d-flex justify-content-end">
+                    <div class="dropdown pr-3 pt-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="align-self-center p-1">@User.Identity.Name</span>
+                            <i class="fas fa-user-alt fa-1x align-self-center p-1"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="~/logout">Logout</a>
+                        </div>
+                    </div>
+                </header>
+                <article>
+                    @RenderBody()
+                </article>
+                <footer class="d-flex justify-content-center">
+                    <span class="align-self-center">Copyright &copy; CMSys 2021</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Common.js"></script>
+    @RenderSection("JSFiles",false)
+</body>
+</html>

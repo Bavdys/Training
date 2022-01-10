@@ -1,0 +1,32 @@
+﻿@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Course info";
+}
+
+<h3 class="m-3">@Model.Name</h3>
+
+<div class="m-3">
+    <div class="d-flex mb-3">
+        <span class="badge bg-primary text-white mr-1">@Model.CourseGroup.Name</span>
+        <span class="badge bg-secondary text-white mr-1">@Model.CourseType.Name</span>
+    </div>
+
+    <p>@Model.Description</p>
+
+    <div class="d-flex mb-3">
+        Trainers:
+        @foreach (var item in Model.TrainerViewModels)
+        {
+            <a href="#" class="mr-3 font-weight-bold" data-toggle="modal" data-target="#trainerInformationModal" data-bs-id="@item.Id"> @item.FullName</a>
+        }
+    </div>
+
+    <a href="~/admin/courses" class="btn btn-outline-secondary">Back to List</a>
+</div>
+
+@await Html.PartialAsync("_TrainerInformationModalWindowPartial")
+
+@section JSFiles{
+    <script src="~/js/TrainerInformationModalWindow.js"></script>
+}

@@ -1,0 +1,62 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "Update user - CMSys";
+}
+
+<h3 class="m-3">Update Trainers for @ViewData["FullName"]</h3>
+
+<div class="d-flex justify-content-between ml-3 mr-3">
+    <div class="bg-white align-self-start w-50 mr-3">
+        <div class="alice-blue-color p-3">
+            <h6 class="text-primary">Change Password</h6>
+        </div>
+        <form asp-action="ChangePassword" asp-  class="m-3">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordConfirm"></label>
+                <input asp-for="PasswordConfirm" class="form-control" type="password" />
+                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Change" />
+        </form>
+    </div>
+    <div class="bg-white w-50">
+        <div class="alice-blue-color p-3">
+            <h6 class="text-primary">User Roles</h6>
+        </div>
+        <div class="p-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-3">
+            <form name="roleForm">
+                <div class="input-group">
+                    <select class="form-control" name="role">
+                    </select>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<a href="~/admin/users" class="btn btn-outline-secondary m-3">Back to List</a>
+
+@section JSFiles{
+    <script src="~/js/AdminUpdateUser.js"></script>
+}

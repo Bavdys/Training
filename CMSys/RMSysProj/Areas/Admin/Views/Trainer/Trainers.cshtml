@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TrainerViewModel>
+
+@{
+    ViewData["Title"] = "Trainers";
+}
+
+<div class="d-flex justify-content-between m-3">
+    <h3>Trainers</h3>
+    <a href="~/admin/trainers/create" class="btn btn-primary">
+        <span><i class="far fa-plus-square"></i></span>
+        Create Trainer
+    </a>
+</div>
+
+<div class="m-3 p-3 bg-white">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Group</th>
+                <th scope="col">Order</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img height="70" width="50" src="data:image/jpeg;base64,@item.PhotoUrl" />
+                        <span class="text-primary">@item.FullName</span>
+                    </td>
+                    <td>@item.TrainerGroup.Name</td>
+                    <td>@item.VisualOrder</td>
+                    <td>
+                        <div class="d-flex">
+                            <a href="~/admin/trainers/update/@item.Id" class="btn btn-outline-warning mr-1">
+                                <span><i class="fas fa-pen"></i></span>
+                            </a>
+                            <a href="~/admin/trainers/delete/@item.Id" class="btn btn-outline-danger">
+                                <span><i class="fas fa-trash-alt"></i></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

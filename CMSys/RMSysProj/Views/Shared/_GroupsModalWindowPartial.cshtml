@@ -1,0 +1,55 @@
+﻿<div class="modal fade" id="groupsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="groupsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title align-self-center" id="groupsModalLabel"></h5>
+                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </button>
+            </div>
+            <form name="modalForm">
+                <div class="modal-body">
+                    <div id="errors" class="d-block text-danger"></div>
+                    <input type="hidden" name="Id" value="0" />
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input name="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="VisualOrder">Order</label>
+                        <input name="VisualOrder" type="number" class="form-control" />
+                    </div>
+                    <div class="form-group ">
+                        <label for="Description">Description</label>
+                        <textarea name="Description" class="form-control" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="submit" type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="groupsErrorModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="groupsErrorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title align-self-center" id="groupsErrorModalLabel">Error</h5>
+                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                    <span><i class="fas fa-times"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-danger">
+                    Group has dependent items
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model CourseEditModel
+@{
+    ViewData["Title"] = "Update Course - CMSys";
+}
+
+<h3 class="m-3">Update Course</h3>
+
+<form asp-action="UpdateCourse" class="mr-3 ml-3 p-3 bg-white">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group w-50">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" placeholder="Name of 1..64 characters" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group w-50">
+        <div class="form-check">
+            <input asp-for="IsNew" class="form-check-input" type="checkbox">
+            <label asp-for="IsNew" class="form-check-label"></label>
+            <span asp-validation-for="IsNew" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="CourseGroupId"></label>
+        <select asp-for="CourseGroupId" class="form-control"  asp-items="@(new SelectList(Model.CourseGroups, "Id", "Name",Model.CourseGroupId))"></select>
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="CourseTypeId"></label>
+        <select asp-for="CourseTypeId" class="form-control" asp-items="@(new SelectList(Model.CourseTypes, "Id", "Name",Model.CourseTypeId))"></select>
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="VisualOrder"></label>
+        <input type="number" asp-for="VisualOrder" class="form-control" />
+        <span asp-validation-for="VisualOrder" class="text-danger"></span>
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Update" />
+</form>
+
+<a href="~/admin/courses" class="btn btn-outline-secondary m-3">Back to List</a>
+
+@section JSFiles{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

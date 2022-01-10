@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Update Course Trainers - CMSys";
+}
+
+<h3 class="m-3">Update Trainers for @ViewData["TitleCourse"]</h3>
+
+<div class="d-flex justify-content-between ml-3 mr-3">
+    <div class="bg-white align-self-start w-50 mr-3">
+        <div class="alice-blue-color p-3">
+            <h6 class="text-primary">Add Trainer</h6>
+        </div>
+        <form name="trainerForm" class="m-3">
+            <div class="input-group">
+                <select class="form-control" name="trainer">
+                </select>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="bg-white w-50">
+        <div class="alice-blue-color p-3">
+            <h6 class="text-primary">Edit Trainer</h6>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Trainer</th>
+                    <th>Order</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<a href="~/admin/courses" class="btn btn-outline-secondary m-3">Back to List</a>
+
+@section JSFiles{
+    <script src="~/js/AdminUpdateTrainers.js"></script>
+}
